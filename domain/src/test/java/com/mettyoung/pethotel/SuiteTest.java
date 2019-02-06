@@ -11,4 +11,13 @@ public class SuiteTest {
         Suite suite = new Suite("Deluxe");
         assertEquals("Deluxe", suite.getName());
     }
+
+    @Test
+    public void should_be_able_to_set_number_of_rooms() {
+        Suite suite = new Suite("Deluxe");
+        assertEquals(0, suite.getTotalRooms());
+
+        suite.specifyRoomCount(3);
+        assertEquals(3, suite.getTotalRooms());
+    }
 }

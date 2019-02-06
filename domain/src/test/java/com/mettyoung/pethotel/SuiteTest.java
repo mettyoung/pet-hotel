@@ -7,7 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SuiteTest {
 
     @Test
-    public void testMethod() {
-        assertEquals(2, 1 + 1);
+    public void should_be_able_to_create_a_suite_with_a_name() {
+        Suite suite = new Suite("Deluxe");
+        assertEquals("Deluxe", suite.getName());
     }
 }

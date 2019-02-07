@@ -24,7 +24,10 @@ class Suite {
         return totalRooms;
     }
 
-    void book() {
+    void book() throws SuiteFullException {
+        if (totalOccupiedRooms == totalRooms) {
+            throw new SuiteFullException(totalRooms);
+        }
         totalOccupiedRooms++;
         totalVacantRooms--;
     }

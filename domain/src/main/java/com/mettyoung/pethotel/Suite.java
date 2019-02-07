@@ -6,8 +6,10 @@ class Suite {
     private int totalOccupiedRooms;
     private int totalRooms;
 
-    Suite(String name) {
+    Suite(String name, int totalRooms) {
         this.name = name;
+        this.totalRooms = totalRooms;
+        clearAllBookings();
     }
 
     String getName() {

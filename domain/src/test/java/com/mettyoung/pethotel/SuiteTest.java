@@ -50,4 +50,14 @@ class SuiteTest {
         assertEquals(3, suite.getTotalVacantRooms());
         assertEquals(0, suite.getTotalOccupiedRooms());
     }
+
+    @Test
+    void should_be_able_to_add_rooms_and_maintain_room_stats_integrity() throws SuiteFullException {
+        new Customer().book(suite);
+        suite.addRooms(2);
+
+        assertEquals(5, suite.getTotalRooms());
+        assertEquals(4, suite.getTotalVacantRooms());
+        assertEquals(1, suite.getTotalOccupiedRooms());
+    }
 }

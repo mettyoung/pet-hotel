@@ -45,4 +45,9 @@ class Suite {
         this.totalOccupiedRooms = 0;
         this.totalVacantRooms = totalRooms;
     }
+
+    void addRooms(int numberOfRooms) {
+        this.totalRooms += numberOfRooms;
+        this.totalVacantRooms += numberOfRooms;
+    }
 }

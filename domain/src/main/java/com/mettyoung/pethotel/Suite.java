@@ -16,8 +16,7 @@ class Suite {
 
     void setRoomCount(int totalRooms) {
         this.totalRooms = totalRooms;
-        this.totalOccupiedRooms = 0;
-        this.totalVacantRooms = totalRooms;
+        clearAllBookings();
     }
 
     int getTotalRooms() {
@@ -38,5 +37,10 @@ class Suite {
 
     int getTotalOccupiedRooms() {
         return totalOccupiedRooms;
+    }
+
+    void clearAllBookings() {
+        this.totalOccupiedRooms = 0;
+        this.totalVacantRooms = totalRooms;
     }
 }

@@ -47,4 +47,16 @@ class SuiteTest {
         new Customer().book(suite);
         assertThrows(SuiteFullException.class, () -> new Customer().book(suite), "The suite cannot accommodate more than 2");
     }
+
+    @Test
+    void should_be_able_to_clear_all_room_stats_of_a_suite() throws SuiteFullException {
+        suite.setRoomCount(2);
+
+        new Customer().book(suite);
+        suite.clearAllBookings();
+
+        assertEquals(2, suite.getTotalRooms());
+        assertEquals(2, suite.getTotalVacantRooms());
+        assertEquals(0, suite.getTotalOccupiedRooms());
+    }
 }

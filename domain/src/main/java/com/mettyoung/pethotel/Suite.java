@@ -1,8 +1,10 @@
 package com.mettyoung.pethotel;
 
 class Suite {
-    String name;
-    int roomCount;
+    private String name;
+    private int totalVacantRooms;
+    private int totalOccupiedRooms;
+    private int totalRooms;
 
     Suite(String name) {
         this.name = name;
@@ -12,11 +14,26 @@ class Suite {
         return name;
     }
 
-    public void specifyRoomCount(int roomCount) {
-        this.roomCount = roomCount;
+    void setRoomCount(int totalRooms) {
+        this.totalRooms = totalRooms;
+        this.totalOccupiedRooms = 0;
+        this.totalVacantRooms = totalRooms;
     }
 
-    public int getTotalRooms() {
-        return roomCount;
+    int getTotalRooms() {
+        return totalRooms;
+    }
+
+    void book() {
+        totalOccupiedRooms++;
+        totalVacantRooms--;
+    }
+
+    int getTotalVacantRooms() {
+        return totalVacantRooms;
+    }
+
+    int getTotalOccupiedRooms() {
+        return totalOccupiedRooms;
     }
 }

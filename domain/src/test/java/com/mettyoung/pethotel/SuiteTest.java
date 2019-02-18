@@ -25,7 +25,7 @@ class SuiteTest {
     }
 
     @Test
-    void should_be_able_to_keep_track_room_stats_if_a_booking_is_made() throws SuiteFullException {
+    void should_be_able_to_keep_track_room_stats_if_a_booking_is_made() {
         new Customer().book(suite);
 
         assertEquals(3, suite.getTotalRooms());
@@ -34,7 +34,7 @@ class SuiteTest {
     }
 
     @Test
-    void should_be_able_to_limit_the_bookings_to_available_rooms_only() throws SuiteFullException {
+    void should_be_able_to_limit_the_bookings_to_available_rooms_only() {
         new Customer().book(suite);
         new Customer().book(suite);
         new Customer().book(suite);
@@ -42,7 +42,7 @@ class SuiteTest {
     }
 
     @Test
-    void should_be_able_to_clear_all_room_stats_of_a_suite() throws SuiteFullException {
+    void should_be_able_to_clear_all_room_stats_of_a_suite() {
         new Customer().book(suite);
         suite.clearAllBookings();
 
@@ -52,12 +52,21 @@ class SuiteTest {
     }
 
     @Test
-    void should_be_able_to_add_rooms_and_maintain_room_stats_integrity() throws SuiteFullException {
+    void should_be_able_to_add_rooms_and_maintain_room_stats_integrity() {
         new Customer().book(suite);
         suite.addRooms(2);
 
         assertEquals(5, suite.getTotalRooms());
         assertEquals(4, suite.getTotalVacantRooms());
+        assertEquals(1, suite.getTotalOccupiedRooms());
+    }
+
+    @Test
+    void should_be_able_to_remove_rooms_and_main_room_stats_integrity() {
+        new Customer().book(suite);
+        suite.removeRooms(2);
+        assertEquals(1, suite.getTotalRooms());
+        assertEquals(0, suite.getTotalVacantRooms());
         assertEquals(1, suite.getTotalOccupiedRooms());
     }
 }

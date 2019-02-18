@@ -50,4 +50,9 @@ class Suite {
         this.totalRooms += numberOfRooms;
         this.totalVacantRooms += numberOfRooms;
     }
+
+    void removeRooms(int numberOfRooms) {
+        this.totalRooms -= numberOfRooms;
+        this.totalVacantRooms -= numberOfRooms;
+    }
 }

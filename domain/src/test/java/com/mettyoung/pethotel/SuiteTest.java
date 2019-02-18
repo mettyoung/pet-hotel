@@ -38,7 +38,7 @@ class SuiteTest {
         new Customer().book(suite);
         new Customer().book(suite);
         new Customer().book(suite);
-        assertThrows(SuiteFullException.class, () -> new Customer().book(suite), "The suite cannot accommodate more than 2");
+        assertThrows(SuiteFullException.class, () -> new Customer().book(suite), "The suite cannot accommodate more than 3");
     }
 
     @Test

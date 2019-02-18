@@ -38,7 +38,7 @@ class SuiteTest {
         new Customer().book(suite);
         new Customer().book(suite);
         new Customer().book(suite);
-        assertThrows(SuiteFullException.class, () -> new Customer().book(suite), "The suite cannot accommodate more than 3");
+        assertThrows(SuiteFullException.class, () -> new Customer().book(suite), "The suite cannot accommodate more than 3 bookings");
     }
 
     @Test
@@ -68,5 +68,11 @@ class SuiteTest {
         assertEquals(1, suite.getTotalRooms());
         assertEquals(0, suite.getTotalVacantRooms());
         assertEquals(1, suite.getTotalOccupiedRooms());
+    }
+
+    @Test
+    void should_be_able_to_limit_the_removal_of_rooms_to_vacant_rooms_only() {
+        new Customer().book(suite);
+        assertThrows(SuiteOverReductionException.class, () -> suite.removeRooms(3), "The suite cannot be reduced with more than 2 vacant rooms");
     }
 }

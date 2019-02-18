@@ -52,6 +52,9 @@ class Suite {
     }
 
     void removeRooms(int numberOfRooms) {
+        if (this.totalVacantRooms < numberOfRooms) {
+            throw new SuiteOverReductionException(this.totalVacantRooms);
+        }
         this.totalRooms -= numberOfRooms;
         this.totalVacantRooms -= numberOfRooms;
     }

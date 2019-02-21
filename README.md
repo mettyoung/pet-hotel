@@ -1,4 +1,4 @@
-# Pet Hotel
+# Pet Hotel (Work In Progress)
 This is my first small personal web app project that seeks to demonstrate building a software using DDD philosophy and TDD.
 
 ## Tech Stack

@@ -62,7 +62,7 @@ class SuiteTest {
     }
 
     @Test
-    void should_be_able_to_remove_rooms_and_main_room_stats_integrity() {
+    void should_be_able_to_remove_rooms_and_maintain_room_stats_integrity() {
         new Customer().book(suite);
         suite.removeRooms(2);
         assertEquals(1, suite.getTotalRooms());

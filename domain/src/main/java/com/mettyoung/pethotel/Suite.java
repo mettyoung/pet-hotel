@@ -16,16 +16,11 @@ class Suite {
         return name;
     }
 
-    void setRoomCount(int totalRooms) {
-        this.totalRooms = totalRooms;
-        clearAllBookings();
-    }
-
     int getTotalRooms() {
         return totalRooms;
     }
 
-    void book() throws SuiteFullException {
+    void book() {
         if (totalOccupiedRooms == totalRooms) {
             throw new SuiteFullException(totalRooms);
         }
